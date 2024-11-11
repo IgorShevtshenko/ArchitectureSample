@@ -49,3 +49,44 @@ Any Elm program is always split into the following:
 - Update, which produces a new Model, based on a Message
 
 ![Elm scheme](Images/elm_scheme.jpeg)
+
+Based on this, there are a few very important consequences:
+
+- Model, it’s usually named State in mobile development, - the single source of truth that keeps everything needed to represent the current state of the app or
+the current screen or whatever 
+- View, in mobile development, it’s rather View Builder, which is a pure function, that has the State as an input and the User Interface as the output
+- Messages or Actions is a limited set, that a user (or another part of the app) can send, and a keyword here is limited, so it’s just impossible that something
+unpredictable can come
+- Update function or Reducer is a pure function, that has a current state and new event as an input and a new state as output; this is the only place where a
+state can be changed
+
+In practice, any part of the app works in collaboration with others, not in a vacuum, and it also has some dependencies, all this together — a kind of
+Environment. Additionally, each event can produce a few side effects that will change the state. In fact, a new state is just a result of applying the side
+effects of an event to the current state. And we need some mechanism to get any events from the User interface, an abstraction that will produce the user’s
+events - "UI Feedback".
+
+So let's see how does this architecture works on a real example:
+The user press the button to load some data -> View send action "Load data" to Reducer. The Reducer will produce a first side effect - "Loading did start" and
+make a request to get new data. Then, when the request is finished, Reducer produces the second side effect - "Loading did stop". The third side-effect will
+depend on the result of the request, if it is a success then Reducer produces the "New data did come" effect, otherwise, it will be the "Error did occur"
+effect. Each effect will be applied to the current State and after each state’s changes, View Builder generates an updated actual UI for the user.
+
+![Practical example of elm](Images/practical_example_of_elm.jpeg)
+
+It could look a bit complicated at the very first glance, but it’s very easy to use in practice because we have a limited set of particular entities, and every
+one of them is responsible only for one specific task. There is a unidirectional flow, so it’s easy to follow it and understand what is going on. Most of the
+logic is pure functions, one single source of truth, and business and presentation logic are strongly separated. Taking this all into account, this approach
+has a fantastic level of testability.
+
+To confirm this, you can look at the ArchitectureSampleTests folder, which demonstrates how easily (in just a few lines) each component of this architecture
+can be tested. It shows what events are triggered by actions, how the reducer changes the state based on events, and, importantly, how easy it is to test the
+view—since we’ve maintained the principle that the view is a function that receives state and produces UI
+
+## Presenter tests
+![Presenter tests](Images/presenter_tests.png)
+
+## Reducer tests
+![Reducer tests](Images/reducer_tests.png)
+
+## View tests
+![View tests](Images/view_tests.png)
