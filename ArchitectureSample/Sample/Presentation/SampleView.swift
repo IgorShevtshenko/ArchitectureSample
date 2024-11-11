@@ -10,21 +10,27 @@ struct SampleView: View {
     
     var body: some View {
         VStack {
-            Text("Count \(presenter.state.count)")
-                .font(.headline)
-                .frame(maxHeight: .infinity)
+            ZStack {
+                if presenter.state.isLoading {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                } else {
+                    Text("Count \(presenter.state.count)")
+                        .font(.headline)
+                }
+            }
+            .frame(maxHeight: .infinity)
+            .transition(.opacity)
             
             VStack {
                 Button("Increase") {
                     presenter.send(.increase)
                 }
+                .font(.title2)
                 .buttonStyle(.borderedProminent)
-                
-                Button("Decrease") {
-                    presenter.send(.decrease)
-                }
-                .buttonStyle(.borderedProminent)
+                .disabled(presenter.state.isLoading)
             }
         }
+        .animation(.default, value: presenter.state.isLoading)
     }
 }

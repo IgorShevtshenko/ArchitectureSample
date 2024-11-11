@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CFCF8CF62CE29D340091C3EC /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = CFCF8CF52CE29D340091C3EC /* Readme.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		CF4787112CE28E1400088AF7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		CF4786FF2CE28E1300088AF7 /* ArchitectureSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArchitectureSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF4787102CE28E1400088AF7 /* ArchitectureSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArchitectureSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF47871A2CE28E1400088AF7 /* ArchitectureSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArchitectureSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFCF8CF52CE29D340091C3EC /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,6 +43,11 @@
 		CF4787132CE28E1400088AF7 /* ArchitectureSampleTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ArchitectureSampleTests;
+			sourceTree = "<group>";
+		};
+		CFCF8CF72CE2A3970091C3EC /* Images */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -70,6 +80,8 @@
 		CF4786F62CE28E1300088AF7 = {
 			isa = PBXGroup;
 			children = (
+				CFCF8CF72CE2A3970091C3EC /* Images */,
+				CFCF8CF52CE29D340091C3EC /* Readme.md */,
 				CF4787012CE28E1300088AF7 /* ArchitectureSample */,
 				CF4787132CE28E1400088AF7 /* ArchitectureSampleTests */,
 				CF4787002CE28E1300088AF7 /* Products */,
@@ -103,6 +115,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				CF4787012CE28E1300088AF7 /* ArchitectureSample */,
+				CFCF8CF72CE2A3970091C3EC /* Images */,
 			);
 			name = ArchitectureSample;
 			packageProductDependencies = (
@@ -203,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFCF8CF62CE29D340091C3EC /* Readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

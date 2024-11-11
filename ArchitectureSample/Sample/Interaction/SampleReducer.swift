@@ -5,6 +5,10 @@ enum SampleReducer {
         switch event {
         case .didChangeNumber(let int):
             state.count = int
+        case .didStartLoading:
+            state.isLoading = true
+        case .didFinishLoading:
+            state.isLoading = false
         }
         return state
     }

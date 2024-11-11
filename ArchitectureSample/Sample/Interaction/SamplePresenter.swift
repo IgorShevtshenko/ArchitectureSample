@@ -18,14 +18,15 @@ final class SamplePresenter: Presenter<SampleState, SampleAction> {
         )
     }
     
+    @MainActor
     override func send(_ action: SampleAction) async {
         switch action {
         case .increase:
+            events.send(.didStartLoading)
+            try? await Task.sleep(nanoseconds: 2_000_000_000)
             let newNumber = getRandomNumber()
             events.send(.didChangeNumber(state.count + newNumber))
-        case .decrease:
-            let newNumber = getRandomNumber()
-            events.send(.didChangeNumber(state.count - newNumber))
+            events.send(.didFinishLoading)
         }
     }
 }
