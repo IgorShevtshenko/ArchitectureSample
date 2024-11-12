@@ -90,3 +90,10 @@ view—since we’ve maintained the principle that the view is a function that r
 
 ## View tests
 ![View tests](Images/view_tests.png)
+
+
+For generating new module you can use Architecture.xctemplate. Just paste it in
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File\ Templates
+And use like this command+N
+
+![Create module](architecture_template.png)

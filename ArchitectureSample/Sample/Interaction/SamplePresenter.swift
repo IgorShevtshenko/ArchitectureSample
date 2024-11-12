@@ -19,7 +19,7 @@ final class SamplePresenter: Presenter<SampleState, SampleAction> {
     }
     
     @MainActor
-    override func send(_ action: SampleAction) async {
+    override func send(_ action: Action) async {
         switch action {
         case .increase:
             events.send(.didStartLoading)

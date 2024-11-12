@@ -1,0 +1,1 @@
+public enum ___FILEBASENAME___: Equatable {}
