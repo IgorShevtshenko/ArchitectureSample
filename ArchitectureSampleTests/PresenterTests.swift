@@ -13,9 +13,15 @@ struct PresenterTests {
             reducer: reducer.reduce
         )
     }
-
+    
     @Test func testSend() async throws {
         await presenter.send(.increase)
-        #expect(reducer.events == [.didChangeNumber(1)])
+        #expect(
+            reducer.events == [
+                .didStartLoading,
+                .didChangeNumber(1),
+                .didFinishLoading
+            ]
+        )
     }
 }
