@@ -96,4 +96,4 @@ For generating new module you can use Architecture.xctemplate. Just paste it in
 /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File\ Templates
 And use like this command+N
 
-![Create module](architecture_template.png)
+![Create module](Images/architecture_template.png)
